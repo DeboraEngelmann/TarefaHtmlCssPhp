@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My System</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container" id="pag">
+        <header>
+            <h1>My System</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                --------------------
+                <li class="cadastroCliente"><a href="index.html">Cadastros Clientes</a></li>
+                <li><a href="#">Cadastros Produtos</a></li>
+                --------------------
+                <li><a href="#">Relatórios</a></li>
+                --------------------
+                <li><a href="#">Sair</a></li>
+            </ul>
+        </nav>
+        <article>
+            <div class="container" id="formulario">
+                <h1>Cadastro Clientes</h1>
+                <form id="myForm">
+                    <div class="campo">
+                        <lable for="codigo">Código*:</lable>
+                        <input type="number" id="codigo" id="codigo" name="codigo" min="1" max="100" style="width: 65px;" required>
+                        <lable class="sexo">Sexo*:</lable>
+                        <input type="radio" name="sexo" value="masculino" checked>
+                        <lable>Masculino</lable>
+                        <input type="radio" name="sexo" value="feminino">
+                        <lable>Feminino</lable>
+                    </div>
+                    <lable for="nome">Nome*:</lable>
+                    <input type="text" id="nome" class="long" name="nome" placeholder="Nome Completo" required>
+                    <lable for="cpf">CPF/CNPJ*:</lable>
+                    <input type="text" class="long" id="cpf" name="cpf" placeholder="xxx.xxx.xxx-xx" required>
+                    <lable for="telefone">Telefone*:</lable>
+                    <input type="tel" class="long" id="telefone" name="telefone" placeholder="xx9xxxx-xxxx" required>
+                    <lable for="endereco">Endereço*:</lable>
+                    <input type="text" class="long" id="endereco" name="endereco" placeholder="Rua, nº" required>
+                    <lable for="bairro">Bairro*:</lable>
+                    <input type="text" class="long" id="bairro" name="bairro" placeholder="Bairro" required>
+                    <lable for="cidade">Cidade*:</lable>
+                    <input type="text" id="cidade" name="cidade" class="long" placeholder="Cidade" required>
+                    <lable for="cep">Cep*:</lable><br>
+                    <input type="text" id="cep" name="cep" class="long" placeholder="xxxxx-xxx" required>
+                    <lable for="pais">País*:</lable>
+                    <input type="text" id="pais" class="long" name="pais" placeholder="País" required>
+                    <lable for="observacoes">Observações:</lable>
+                    <input type="text" class="long" id="observacoes" placeholder="Observções" name="observacao">
+                    <lable class="inform">Os campos marcados com * são de preenchimento obrigatório.</lable>
+                    <div><input type='submit' value='Cadastrar' /></div>
+                </form>
+            </div>
+        </article>
+        <article>
+            <div id="resultado">
+                <h2>Dados Cadastrados</h2>
+                <div id="response"></div>
+            </div>
+        </article>
+    </div>
+    <footer>Copyright &copy; Débora Cristina Engelmann e Marivaldo Vivan</footer>
+</body>
+<script src="js.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js "></script>
+<script>
+    $(document).ready(function() {
+        $('#myForm').submit(function() {
+            if (!validateForm()) {
+                return false;
+            }
+            $('#response').html("<b>Loading response...</b>");
+            $.ajax({
+                    type: 'POST',
+                    url: 'processar.php',
+                    data: $(this).serialize()
+                })
+                .done(function(data) {
+                    $('#response').html(data);
+                })
+                .fail(function() {
+                    alert("Posting failed.");
+                });
+            return false;
+        });
+    });
+</script>
+
+</html>

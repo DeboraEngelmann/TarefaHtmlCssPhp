@@ -1,0 +1,122 @@
+#pag {
+    width: 100%;
+    display: table;
+    padding-top: 0;
+}
+
+header {
+    padding: 0.5em;
+    color: white;
+    background-color: black;
+    clear: left;
+    text-align: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+footer {
+    background: #aaa;
+    color: white;
+    text-align: left;
+    vertical-align: bottom;
+    padding: 1em;
+}
+
+nav {
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    padding: 1em;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.cadastroCliente {
+    background-color: #aaa;
+}
+
+article {
+    margin-left: 170px;
+    border-left: 1px solid gray;
+    padding: 1em;
+    overflow: hidden;
+    float: left;
+    width: 500px;
+    margin: 10px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#formulario {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+form input {
+    display: block;
+}
+
+.campo label {
+    display: inline-block;
+}
+
+.sexo {
+    padding-left: 40px;
+}
+
+input[type=text],
+input[type=tel] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=number] {
+    width: 100%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=radio] {
+    display: inline-block;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.inform {
+    font-size: 0.8em;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
